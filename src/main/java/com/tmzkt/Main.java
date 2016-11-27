@@ -1,3 +1,4 @@
+package com.tmzkt;
 
 public class Main {
     Main() {

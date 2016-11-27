@@ -1,3 +1,5 @@
+package com.tmzkt;
+
 import org.jmock.AbstractExpectations;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
