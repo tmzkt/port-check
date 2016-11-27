@@ -10,12 +10,12 @@ public class PortChecker {
             ss = createServerSocket(portNumber);
             ds = createDatagramSocket(portNumber);
             return true;
+        } catch(IllegalArgumentException e) {
         } catch (IOException e) {
         } finally {
             if (ds != null) {
                 ds.close();
             }
-
             if (ss != null) {
                 try {
                     ss.close();

@@ -113,4 +113,26 @@ public class PortCheckerTest {
 
         assertFalse(instance.isPortOpen(123));
     }
+
+    @Test
+    public void portIsClosedIfServerSocketThrowsIllegalArgumentException() {
+        final DatagramSocket datagramSocket = context.mock(DatagramSocket.class);
+        PortChecker instance = new PortChecker() {
+            @Override
+            protected ServerSocket createServerSocket(int portNumber) throws IOException {
+                throw new IllegalArgumentException();
+            }
+
+            @Override
+            protected DatagramSocket createDatagramSocket(int portNumber) throws IOException {
+                return datagramSocket;
+            }
+        };
+
+        Expectations expectations = new Expectations();
+        expectations.never(datagramSocket).close();
+        context.checking(expectations);
+
+        assertFalse(instance.isPortOpen(123));
+    }
 }
