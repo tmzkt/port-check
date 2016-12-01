@@ -1,5 +1,6 @@
 # port-check
 Command line utility to determine if a port on the host machine is open.
+Provides a faster way to check port availability by only checing the availability of the ports specified.
 
 ## Prerequisites
 To work on this project, please have the following tools installed:
